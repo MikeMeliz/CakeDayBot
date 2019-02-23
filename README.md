@@ -4,7 +4,9 @@
   Author: MikeMeliz
   -->
 
-# Cakeday bot for Reddit ([u/CakeDay--Bot](https://www.reddit.com/user/CakeDay--Bot/), [r/CakeDayBot](https://www.reddit.com/r/CakeDayBot))
+# Cakeday bot for Reddit
+- **Profile: [u/CakeDay--Bot](https://www.reddit.com/user/CakeDay--Bot/)**
+- **Subreddit: [r/CakeDayBot](https://www.reddit.com/r/CakeDayBot)**
 
 [![Version](https://img.shields.io/badge/version-0.8-green.svg?style=plastic)]() [![license](https://img.shields.io/github/license/MikeMeliz/CakeDayBot.svg?style=plastic)]()
 
