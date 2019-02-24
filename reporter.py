@@ -103,17 +103,18 @@ def storeOptOut():
 # Check new contributions for the start of the message "Hey just noticed.."
 def storeContributions():
 	logger.info("-- Checking for new Contributions with limit: " + str(maxChars) + " characters.")
-	contrSubm = r.submission(id='aorljp').comments.replace_more(limit=0)
+	post = r.submission(id='aorljp')#.comments.replace_more(limit=None)
 	totalCC = 0
-	for comment in contrSubm:
-		print comment.body # remove
+	for comment in post.comments:
 		# Check if approved
 		if comment.approved_by == None:
 			break
 		combody = comment.body
 		if len(combody) <= maxChars:
+			logger.debug("-- Checking if exists already")
 			cur.execute("SELECT message FROM contributions WHERE message = ?", [combody])
 			if not cur.fetchone():
+				logger.debug("-- Insert into DB")
 				cur.execute("INSERT INTO contributions(message) VALUES(?)", [combody])
 				sql.commit()
 				logger.debug("-- Added contribution's message: " + combody)
@@ -193,5 +194,5 @@ schedule.every().saturday.at("10:00").do(weekStatistics)
 schedule.every().saturday.at("11:00").do(resetMessageStatuses)
 
 while True:
-    schedule.run_pending()
     time.sleep(1)
+    schedule.run_pending()
