@@ -19,7 +19,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
-          projectBaseDir: wisher.py
+          projectBaseDir: /wisher.py
   sonarcloud2:
       name: SonarCloudScan-Collector
       runs-on: ubuntu-latest
@@ -31,9 +31,9 @@ jobs:
           uses: SonarSource/sonarcloud-github-action@master
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN2 }}
           with:
-            projectBaseDir: collector.py
+            projectBaseDir: /collector.py
   sonarcloud3:
       name: SonarCloudScan-Reporter
       runs-on: ubuntu-latest
@@ -47,4 +47,4 @@ jobs:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
             SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           with:
-            projectBaseDir: reporter.py
+            projectBaseDir: /eporter.py
