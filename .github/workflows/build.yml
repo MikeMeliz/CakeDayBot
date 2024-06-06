@@ -33,7 +33,7 @@ jobs:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
             SONAR_TOKEN: ${{ secrets.SONAR_TOKEN2 }}
           with:
-            sources: collector.py
+            entryPoint: collector.py
   sonarcloud3:
       name: SonarCloudScan-Reporter
       runs-on: ubuntu-latest
